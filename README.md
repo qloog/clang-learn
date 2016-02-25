@@ -35,7 +35,38 @@ C 语言是一门高级计算机编程语言，设计目标是提供一种能以
   
   ```
   
-* 水电费收到
+* 整型
+
+```
+#include <iostream>
+
+int main() {
+  
+  int a = 10;   //使用4个字节来存储
+  int b = -10;
+  long long c = 20;  //如果是 long c=20  32位 4字节， 64位8字节, long long 就32、64 都是8个字节
+  
+  printf("a=%d, b=%d, c=%d\n", a,b,c);
+  
+  int d = 0b100;  //二进制
+  int e = 0xB;    //十六进制 11
+  int f = 010;    //8进制 18
+  
+  //无符号类型
+  unsigned int g = 12;
+  unsigned long long g = 13;
+  printf("%d\n", g);
+  
+  int32_t h = 10;
+  int8_t i = 127;  1个字节  存256个，  -128~127 或 0~255
+  uint8_t j = 255;
+  int64_t k = 1000; //全平台通用
+  printf("i=%d, j=%d, k=%d\n", i,j,k);
+  
+  return 0;
+  
+}
+```
 
 ### 流程控制和循环
 ### C语言常用运算符
