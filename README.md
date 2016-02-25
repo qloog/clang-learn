@@ -84,6 +84,21 @@ int main(void)
 }
 ```
 
+* 字符型数据
+```
+字符常量
+换行：\n  printf("Hello\nWorld");
+回车：\r  printf("Hello\rWorld");
+退格：\b  printf("Hello\bWorld");  //需要在终端下执行效果可见，类似CLion的ide环境不行
+制表符：\t  printf("Hello\tWorld\nHaha\t\bupt");
+换页符：\f  printf("Hello\fWorld\n");
+
+字符变量
+char ch = 'A';
+printf("%d\n", ch); //输出65
+printf("%c\n", ch+32); //输出a,  因为大小写刚好差32，所以可以用来做字母大小写的转换
+```
+
 ### 流程控制和循环
 ### C语言常用运算符
 ### C语言输入和输出
