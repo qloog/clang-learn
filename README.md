@@ -99,6 +99,32 @@ printf("%d\n", ch); //输出65
 printf("%c\n", ch+32); //输出a,  因为大小写刚好差32，所以可以用来做字母大小写的转换
 ```
 
+* typedef 自定义类型
+ 
+ ```
+    #include <stdio.h>
+    #include <stdint.h>
+    
+    typedef int64_t test_long;
+    typedef char test_char;
+    typedef uint8_t test_char1;
+    
+    int main() {
+    
+        test_long a = 20;
+        printf("%d\n", a);
+        
+        test_char b = 'A';
+        printf("%c\n", b);
+        
+        test_char1 c = 'c';
+        printf("%c\n", c);
+    
+        return 0;
+    }
+
+ ```
+
 ### 流程控制和循环
 ### C语言常用运算符
 ### C语言输入和输出
