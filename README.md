@@ -13,6 +13,30 @@ C 语言是一门高级计算机编程语言，设计目标是提供一种能以
 ## C语言基础知识
 
 ### C语言常用的基本数据类型
+
+* 常量和变量
+
+  变量  int a = 10;  
+  
+  常量: 使用define或const来声明, 全部要大写  
+  
+  define: 在编译时会被自动替换为对应值  
+  const: 可以指定常量的类型，一般推荐此方法, 不容易出错
+  
+  ```
+  //#define MY_AGE = 25
+  const int MY_AGE1 = 25;
+  
+  int main() {
+    printf("My age is: %d\n", MY_AGE);
+    printf("My age is: %d\n", MY_AGE1);
+    return 0;
+  }
+  
+  ```
+  
+* 水电费收到
+
 ### 流程控制和循环
 ### C语言常用运算符
 ### C语言输入和输出
