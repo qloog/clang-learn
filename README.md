@@ -37,67 +37,69 @@ C 语言是一门高级计算机编程语言，设计目标是提供一种能以
   
 * 整型
 
-```
-#include <iostream>
+    ```
+    #include <iostream>
+    
+    int main() {
+      
+      int a = 10;   //使用4个字节来存储
+      int b = -10;
+      long long c = 20;  //如果是 long c=20  32位 4字节， 64位8字节, long long 就32、64 都是8个字节
+      
+      printf("a=%d, b=%d, c=%d\n", a,b,c);
+      
+      int d = 0b100;  //二进制
+      int e = 0xB;    //十六进制 11
+      int f = 010;    //8进制 18
+      
+      //无符号类型
+      unsigned int g = 12;
+      unsigned long long g = 13;
+      printf("%d\n", g);
+      
+      int32_t h = 10;
+      int8_t i = 127;  1个字节  存256个，  -128~127 或 0~255
+      uint8_t j = 255;
+      int64_t k = 1000; //全平台通用
+      printf("i=%d, j=%d, k=%d\n", i,j,k);
+      
+      return 0;
+      
+    }
+    ```
 
-int main() {
-  
-  int a = 10;   //使用4个字节来存储
-  int b = -10;
-  long long c = 20;  //如果是 long c=20  32位 4字节， 64位8字节, long long 就32、64 都是8个字节
-  
-  printf("a=%d, b=%d, c=%d\n", a,b,c);
-  
-  int d = 0b100;  //二进制
-  int e = 0xB;    //十六进制 11
-  int f = 010;    //8进制 18
-  
-  //无符号类型
-  unsigned int g = 12;
-  unsigned long long g = 13;
-  printf("%d\n", g);
-  
-  int32_t h = 10;
-  int8_t i = 127;  1个字节  存256个，  -128~127 或 0~255
-  uint8_t j = 255;
-  int64_t k = 1000; //全平台通用
-  printf("i=%d, j=%d, k=%d\n", i,j,k);
-  
-  return 0;
-  
-}
-```
 * 实型数据
 
-```
-#include <stdint.h>
-
-int main(void)
-{
-    float a = 3.1;  //单精度, 4字节， 32位
-    double b = 3.1; //双精度， 8字节， 64位
-    long double c = 3.1;  //长双精度， 16字节， 128位
-    
-    printf("a=%f, b=%f, c=%Lf", a, b, c);
-
-    return 0;
-}
-```
+  ```
+  #include <stdint.h>
+  
+  int main(void)
+  {
+      float a = 3.1;  //单精度, 4字节， 32位
+      double b = 3.1; //双精度， 8字节， 64位
+      long double c = 3.1;  //长双精度， 16字节， 128位
+      
+      printf("a=%f, b=%f, c=%Lf", a, b, c);
+  
+      return 0;
+  }
+  ```
 
 * 字符型数据
-```
-字符常量
-换行：\n  printf("Hello\nWorld");
-回车：\r  printf("Hello\rWorld");
-退格：\b  printf("Hello\bWorld");  //需要在终端下执行效果可见，类似CLion的ide环境不行
-制表符：\t  printf("Hello\tWorld\nHaha\t\bupt");
-换页符：\f  printf("Hello\fWorld\n");
 
-字符变量
-char ch = 'A';
-printf("%d\n", ch); //输出65
-printf("%c\n", ch+32); //输出a,  因为大小写刚好差32，所以可以用来做字母大小写的转换
-```
+  ```
+  字符常量
+  换行：\n  printf("Hello\nWorld");
+  回车：\r  printf("Hello\rWorld");
+  退格：\b  printf("Hello\bWorld");  //需要在终端下执行效果可见，类似CLion的ide环境不行
+  制表符：\t  printf("Hello\tWorld\nHaha\t\bupt");
+  换页符：\f  printf("Hello\fWorld\n");
+  
+  字符变量
+  char ch = 'A';
+  printf("%d\n", ch); //输出65
+  printf("%c\n", ch+32); //输出a,  因为大小写刚好差32，所以可以用来做字母大小写的转换
+  ```
 
 * typedef 自定义类型
  
