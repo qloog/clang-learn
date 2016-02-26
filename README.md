@@ -13,6 +13,7 @@ C 语言是一门高级计算机编程语言，设计目标是提供一种能以
 ## C语言基础知识
 
 ### C语言常用的基本数据类型
+基本数据类型是 C 语言开发的基本知识，在做 C 语言开发前必须要了解 C 语言的基本数据类型。
 
 * 常量和变量
 
@@ -128,6 +129,52 @@ C 语言是一门高级计算机编程语言，设计目标是提供一种能以
  ```
 
 ### 流程控制和循环
+流程控制和循环是编程语言最基本的功能，也是必然的功能，只有学会了这些才能进行开发工作
+
+ * if语句
+ ```
+    #include <stdio.h>
+    #include <stdint.h>
+    
+    int main() {
+    
+        int32_t a = 8;
+        int32_t b = 10;
+    
+        if (a > b) {
+            printf("Max num is a: %d\n", a);
+        } else {
+            printf("Max num is b: %d\n", b);
+        }
+    
+        return 0;
+    }
+ ```
+ 评分程序
+ ```
+    #include <stdio.h>
+    #include <stdint.h>
+    
+    int main() {
+    
+        int32_t score = 60;
+    
+        if (score > 80) {
+            printf("fine\n");
+        }else if (score >= 60) {
+            printf("ok\n");
+        } else {
+            printf("fail\n");
+        }
+    
+        return 0;
+    }
+ ```
+ * switch语句
+ * goto语句
+ * for循环
+ * while循环和do-while循环
+ 
 ### C语言常用运算符
 ### C语言输入和输出
 ### C语言数组
