@@ -171,7 +171,60 @@ C 语言是一门高级计算机编程语言，设计目标是提供一种能以
     }
  ```
  * switch语句
+ ```
+    
+    #include <sys/_types/_int32_t.h>
+    #include <stdio.h>
+    
+    #define UP 1
+    #define DOWN 2
+    #define LEFT 3
+    #define RIGHT 4
+    
+    int main() {
+    
+        int32_t dir = UP;
+    
+        switch (dir) {
+            case UP:
+                printf("Go Up\n");
+                break;
+            case DOWN:
+                printf("Go Down\n");
+                break;
+            case LEFT:
+                printf("Go Left\n");
+                break;
+            case RIGHT:
+                printf("Go Right\n");
+                break;
+            default:
+                printf("Dir unknown\n");
+        }
+    
+        return 0;
+    }
+
+ ```
  * goto语句
+ ```
+    #include <stdio.h>
+    
+    int main(void) {
+    
+        int i = 0;
+        label: printf("%d\n", i);
+    
+        i++;
+    
+        if (i <= 100) {
+            goto label;
+        }
+    
+        return 0;
+    }
+
+ ```
  * for循环
  * while循环和do-while循环
  
