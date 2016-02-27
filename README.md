@@ -226,6 +226,50 @@ C 语言是一门高级计算机编程语言，设计目标是提供一种能以
 
  ```
  * for循环
+    ```
+    #include <stdio.h>
+    #include <stdint.h>
+    
+    int main() {
+    
+        //基本
+        for (int i = 1; i <= 9; i++) {
+            for (int j = 1; j <= 9; j++) {
+                printf("%d*%d=%d\t", i, j, i * j);
+            }
+            printf("\n");
+        }
+    
+        printf("======================\n");
+    
+        //九九乘法表条件: j<=i
+        for (int i = 1; i <= 9; i++) {
+            for (int j = 1; j <= i; j++) {
+                printf("%d*%d=%d\t", i, j, i * j);
+            }
+            printf("\n");
+        }
+    
+        printf("======================\n");
+    
+        //跳出多重循环： 可以使用goto语句加标签的形式，跳到后面指定的标签
+        for (int i = 1; i <= 9; i++) {
+            for (int j = 1; j <= i; j++) {
+                printf("%d*%d=%d\t", i, j, i * j);
+    
+                if (i*j > 24) {
+                    goto end;
+                }
+            }
+            printf("\n");
+        }
+    
+        end:
+    
+        return 0;
+    }
+    ```
+    
  * while循环和do-while循环
  
 ### C语言常用运算符
