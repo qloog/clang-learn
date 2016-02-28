@@ -315,6 +315,51 @@ C 语言是一门高级计算机编程语言，设计目标是提供一种能以
     }
   ```
  * 逻辑运算符
+   一共有三种： 逻辑与(&&)、逻辑或(||)、逻辑非(!)
+   ```
+    #include <stdio.h>
+    #include <stdint.h>
+    
+    #define MALE 1
+    #define FEMALE 2
+    
+    int main() {
+    
+        int32_t score = 80;
+    
+        //逻辑与
+        if (score >= 60 && score <= 100) {
+            printf("OK\n");
+        } else {
+            printf("Fail or invalid score\n");
+        }
+    
+        //逻辑或
+        if (score < 60 || score > 100) {
+            printf("Fail or invalid score\n");
+        } else {
+            printf("Ok\n");
+        }
+    
+        //逻辑非
+        int sex = MALE;
+    
+        if ( sex == MALE) {
+            printf("The person is male\n");
+        }else {
+            printf("The person is female\n");
+        }
+    
+        //下面的运行结果与上面的是一致的,只是通过非来做处理
+        if (sex != MALE) {
+            printf("The person is female\n");
+        } else {
+            printf("The person is male\n");
+        }
+    
+        return 0;
+    }
+   ```
  * 位运算符
  * 位运算实例之提取颜色通道
  
