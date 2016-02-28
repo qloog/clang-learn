@@ -415,6 +415,25 @@ C 语言是一门高级计算机编程语言，设计目标是提供一种能以
   } 
   ```
  * 位运算实例之提取颜色通道
+   这个例子有点抽象
+ ```
+  #include <stdio.h>
+  #include <stdint.h>
+  
+  int main() {
+  
+      //十六进制 ARGB(Alpha, Red, Green, Blue), 每个颜色是256个梯度0~256 前两位FF:完全不透明 后六位: FFFFFF 白色 000000黑色
+      uint32_t color = 0xFFFEFAFB;
+  
+      //只取红色通道的值
+      //0x00000000 11111110 00000000 00000000
+      uint32_t tmp = color&0x00FF0000;    //0b11111110 & 0b11111111 = 0b11111110
+      uint8_t  red = tmp >> 16;
+      printf("%d\n", red);
+  
+      return 0;
+  }
+ ```
  
 ### C语言输入和输出
 ### C语言数组
