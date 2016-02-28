@@ -296,6 +296,28 @@ C 语言是一门高级计算机编程语言，设计目标是提供一种能以
  ```
  
 ### C语言常用运算符
+   关于函数库的使用可以参考：http://www.cplusplus.com/reference
+ * 数学运算符
+  ```
+    #include <math.h>
+    #include <stdio.h>
+    #include <inttypes.h>
+    
+    int main() {
+    
+        int32_t a = (10+2-8)*9/3;
+    
+        printf("%d\n", a);
+    
+        printf("%f\n", sin(M_PI/2));
+    
+        return 0;
+    }
+  ```
+ * 逻辑运算符
+ * 位运算符
+ * 位运算实例之提取颜色通道
+ 
 ### C语言输入和输出
 ### C语言数组
 ### C语言字符串操作
