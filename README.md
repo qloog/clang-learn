@@ -505,6 +505,36 @@ C 语言是一门高级计算机编程语言，设计目标是提供一种能以
   }
  ```
  * 格式化输入
+ ```
+  #include <stdio.h>
+
+  int main() {
+  
+  
+      //demo1: 输入字符, 非内存地址,所以scanf时要加上&
+      char dist;
+  
+      printf("Please input a char \n");
+  
+      scanf("%c", &dist);
+  
+      printf("User input char is %c\n", dist);
+  
+      //demo2: 出入整数
+      int a;
+      printf("Please input a number\n");
+      scanf("%d", &a);
+      printf("User input number is %d\n", a);
+  
+      //demo3: 输入指定长度的字符串
+      char buf[100];
+      printf("Please input a string\n");
+      scanf("%s", buf);   //直接就是一个内存地址,so 不用加 &
+      printf("User input string is: %s\n", buf);
+  
+      return 0;
+  }
+ ```
  
 ### C语言数组
 ### C语言字符串操作
