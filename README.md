@@ -13,8 +13,8 @@ Mac 系统用户体验非常好，文字渲染非常完美，正在被越来越�
  
  * Mac 平台安装 Xcode 集成开发环境（只支持Mac）  
  * Mac 平台使用 SublimeText 编写 C 语言程序（支持跨平台）  
- * Mac 平台搭建 Eclipse CDT 集成开发环境（支持跨平台）  
- * Mac 平台下搭建 CLion 集成开发环境（支持跨平台）  
+ * Mac 平台搭建 Eclipse CDT 集成开发环境（支持跨平台）  [下载Eclipse](http://www.eclipse.org/downloads/)
+ * Mac 平台下搭建 CLion 集成开发环境（支持跨平台）  [下载Clion](https://www.jetbrains.com/clion/download/)
 
 ## C语言基础知识
 
