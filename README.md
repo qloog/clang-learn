@@ -490,6 +490,20 @@ C 语言是一门高级计算机编程语言，设计目标是提供一种能以
   }
  ```
  * 输入字符
+ ```
+  #include <stdio.h>
+
+  int main() {
+  
+      puts("Please input a char");
+  
+      char inputChar = getchar();
+  
+      printf("User input is %c\n", inputChar);
+  
+      return 0;
+  }
+ ```
  * 格式化输入
  
 ### C语言数组
