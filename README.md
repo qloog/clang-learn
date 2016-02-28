@@ -455,6 +455,40 @@ C 语言是一门高级计算机编程语言，设计目标是提供一种能以
     }
   ```
  * 格式化输出
+ ```
+  #include <stdio.h>
+
+  int main() {
+  
+      //printf 更多可参考: http://www.cplusplus.com/reference/cstdio/printf/
+  
+      printf("Hello World\n");
+  
+      printf("Number: %d, Unsigned Int:%u\n", 12, 20);    //十进制整型
+  
+      printf("%03d\n", 7);        //不够前面补0   007
+      printf("%3d\n", 7);         //不够用空格补    7
+      printf("%03d\n", 100);      //前面补0 100
+      printf("%03d\n", 234);      //前面补0 234
+  
+      printf("%o\n", 8);  //输出8进制
+  
+      //二进制 0,1,2,3,4,5,6,7,8,9,10
+  
+      printf("%x\n", 15);  //十六进制 0,1,2,3,4,5,6,7,8,9,A,B,C,D,E,F,10
+      printf("%X\n", 15);
+  
+      printf("%f\n", 3.14);    //浮点类型  3.140000
+      printf("%.2f\n", 3.14);  //浮点类型  3.14
+      printf("%.3f\n", 3.14);  //浮点类型  3.140
+  
+      printf("%c\n", 'A');    //输出字符,和putchar一样
+  
+      printf("%s\n", "Hello World");  //输出字符串
+  
+      return 0;
+  }
+ ```
  * 输入字符
  * 格式化输入
  
