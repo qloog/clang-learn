@@ -613,6 +613,37 @@ Mac 系统用户体验非常好，文字渲染非常完美，正在被越来越�
   }
  ```
  * 字符数组
+ ```
+ #include <stdio.h>
+ #include <string.h>
+ 
+ int main() {
+ 
+     //其实就是字符串
+     //char str[10] = "Hello";  这种肯定是OK的
+     //一般已\0结尾,否则无法查找到结尾
+     char str1[10] = {'H', 'e', 'l', 'l', 'o', '\0'};
+ 
+     char str2[10] = {'H', 'e', 'l', '\0', 'l', 'o', '\0'};
+ 
+     printf("string1 length:%ld, and string1 is %s\n", strlen(str1), str1);
+     printf("string2 length:%ld, and string2 is %s\n", strlen(str2), str2);
+ 
+     //clear array
+     memset(str1, 0, 10);
+     printf("string1 length after memset :%ld, and string1 is %s\n", strlen(str1), str1);
+ 
+     //访问字符数组里的元素
+     char str[] = "Hello world";
+ 
+     //PS: 12是含有末尾的\0, 一般不用含有\0
+     for (int i = 0; i < 11; ++i) {
+         printf("[index:%d]%c\n", i, str[i]);
+     }
+ 
+     return 0;
+ }
+ ```
  
 ### C语言字符串操作
 ### C语言函数
