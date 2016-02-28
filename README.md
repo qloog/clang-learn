@@ -271,6 +271,29 @@ C 语言是一门高级计算机编程语言，设计目标是提供一种能以
     ```
     
  * while循环和do-while循环
+ ```
+    #include <stdio.h>
+
+    int main() {
+    
+        int i=0;
+        printf("======while======\n");
+        while (i<10) {
+            printf("%d\n", i);
+            i++;
+        }
+    
+        printf("======do-while======\n");
+        //先执行后判断
+        int j = 0;
+        do {
+            printf("%d\n", j);
+            j++;
+        }while(j<10);
+    
+        return 0;
+    }
+ ```
  
 ### C语言常用运算符
 ### C语言输入和输出
