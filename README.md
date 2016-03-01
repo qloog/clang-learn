@@ -673,6 +673,34 @@ Mac 系统用户体验非常好，文字渲染非常完美，正在被越来越�
  }
  ```
  * 格式化字符串
+ ```
+ #include <stdio.h>
+ #include <string.h>
+ 
+ int main(void) {
+ 
+     //1. 格式化
+     char * str = "Item";    //字符指针
+     int a = 100;
+     char dist[100];
+     float b = 3.14;
+     memset(dist, 0, 100);
+ 
+     //输出为字符串
+     sprintf(dist, "%s %d, MATH_PI=%.2f", str, a, b);    //Item 100, MATH_PI=3.14
+ 
+     //2.分解字符串
+     char * str2 = "Item 100";
+     char buf[10];
+     memset(buf, 0, 10);
+     int c;
+     sscanf(str2, "%4s %d", buf, &a);
+ 
+     printf("String is %s, and int value is %d\n", buf, a);
+ 
+     return 0;
+ }
+ ```
  * 字符串与基础数据类型转换
  * 字符串比较
  * 字符串的截取
