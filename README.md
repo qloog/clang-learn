@@ -648,6 +648,30 @@ Mac 系统用户体验非常好，文字渲染非常完美，正在被越来越�
 ### C语言字符串操作
 
  * 字符串连接
+ ```
+ #include <stdio.h>
+ #include <string.h>
+ 
+ int main(void) {
+ 
+     //字符指针
+     char * str = "Hello";
+     char * str1 = "World";
+ 
+     const __uint32_t DIST_LEN = 100;
+     char dist[DIST_LEN];
+     memset(dist, 0, DIST_LEN);   //数组清零
+ 
+     strcat(dist, str);
+     strcat(dist, " ");
+     strcat(dist, str1); //Hello World
+     strncat(dist, str1, 3);  //连接指定长度的字符串,  Hello Wor
+ 
+     puts(dist);
+ 
+     return 0;
+ }
+ ```
  * 格式化字符串
  * 字符串与基础数据类型转换
  * 字符串比较
