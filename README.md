@@ -702,6 +702,31 @@ Mac 系统用户体验非常好，文字渲染非常完美，正在被越来越�
  }
  ```
  * 字符串与基础数据类型转换
+ ```
+ #include <stdio.h>
+ #include <string.h>
+ #include <stdlib.h>
+ 
+ int main(void) {
+ 
+     //to float
+     double value = atof("3.14");
+     printf("%f\n", value);  //3.140000
+     //atof()    转换为 float
+     //atol()    转换为 long
+     //atoi()    转换为 int
+     //atoll()   转换为 long long int
+ 
+     //to string
+     int value2 = 1000;
+     char buf[10];
+     sprintf(buf, "%d", value2);
+ 
+     puts(buf);  //1000
+ 
+     return 0;
+ }
+ ```
  * 字符串比较
  * 字符串的截取
  
