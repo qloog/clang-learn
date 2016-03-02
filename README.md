@@ -877,6 +877,40 @@ Mac 系统用户体验非常好，文字渲染非常完美，正在被越来越�
  }
  ```
  * 可变参数
+ ```
+ #include <stdio.h>
+ #include <stdlib.h>
+ #include <stdarg.h>
+ 
+ /**
+  * 可变参数函数
+  * 说明:
+  * 必须引入 stdarg.h
+  * 第一个参数是参数的个数, 第二个是可变的参数
+  */
+ int sum(int n, ...) {
+ 
+     int total = 0;    //总和
+ 
+     va_list args;   //定义参数列表
+     va_start(args, n);  //开始获取参数
+     for (int i = 0; i < n; ++i) {
+         total += va_arg(args, int);
+     }
+     va_end(args);   //结束参数处理
+     return total;
+ }
+ 
+ int main(int argc, char ** argv) {
+ 
+     printf("sum is %d\n", sum(2, 1, 2));    //sum is 3
+ 
+     printf("sum is %d\n", sum(4, 3, 2, 1, 8));  //sum is 14
+ 
+ 
+     return EXIT_SUCCESS;
+ }
+ ```
  * 多文件程序
 
 ## C语言进阶
