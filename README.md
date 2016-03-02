@@ -842,6 +842,40 @@ Mac 系统用户体验非常好，文字渲染非常完美，正在被越来越�
  }
  ```
  * main 函数参数及返回值
+ ```
+ #include <stdio.h>
+
+ int main(int argc, char ** argv) {
+ 
+     /**
+      * 说明:
+      * 第一个参数是: 参数的数量
+      * 第二个参数是: 一个字符数组,从这个数组里可以取到传进来的所有参数
+      */
+ 
+     printf("Arguments count %d\n", argc);
+ 
+     printf("First argument value is %s\n\n", argv[0]);
+ 
+     for (int i = 0; i < argc; ++i) {
+         printf("arg index:%d, arg value: %s\n", i, argv[i]);
+     }
+ 
+     //output:
+     //    ➜  C-learn /path/to/C_learn  "hello world" "tester"
+     //    Arguments count 3
+     //    First argument value is /path/to/C_learn
+     //
+     //    arg index:0, arg value: /path/to/C_learn
+     //    arg index:1, arg value: hello world
+     //    arg index:2, arg value: tester
+ 
+     //ps: 第一个参数是程序本生
+ 
+ 
+     return 0;
+ }
+ ```
  * 可变参数
  * 多文件程序
 
