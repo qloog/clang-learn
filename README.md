@@ -764,6 +764,46 @@ Mac 系统用户体验非常好，文字渲染非常完美，正在被越来越�
  }
  ```
  * 字符串的截取
+ ```
+ #include <stdio.h>
+ #include <string.h>
+ 
+ int main(void) {
+ 
+     char * str = "Hello World";
+     char * str1 = strchr(str, 'o');     //从某个字符正向截取
+     char * str2 = strrchr(str, 'o');    //从某个字符反向截取
+     char * str3 = strstr(str, "Wo");    //从某个字符串开始截取
+ 
+     char str4[10];
+     memset(str4, 0, 10);
+ 
+     strncpy(str4, str, 3);  //从开始位置截取3个字符
+     char * str5 = str+5;    //从某个位置开始截取到结尾,主要是通过指针
+ 
+     char * tmp = str+6;
+     char str6[10];
+     memset(str6, 0, 10);
+     strncpy(str6, tmp, 3);  //从某个位置开始截取3个字符
+ 
+     printf("str1 is %s\n", str1);
+     printf("str2 is %s\n", str2);
+     printf("str3 is %s\n", str3);
+     printf("str4 is %s\n", str4);
+     printf("str5 is %s\n", str5);
+     printf("str6 is %s\n", str6);
+     
+     //output:
+     //str1 is o World
+     //str2 is orld
+     //str3 is World
+     //str4 is Hel
+     //str5 is  World
+     //str6 is Wor
+ 
+     return 0;
+ }
+ ```
  
 ### C语言函数
 
