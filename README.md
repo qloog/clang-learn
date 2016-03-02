@@ -728,6 +728,41 @@ Mac 系统用户体验非常好，文字渲染非常完美，正在被越来越�
  }
  ```
  * 字符串比较
+ ```
+ #include <stdio.h>
+ #include <string.h>
+ 
+ int main(void) {
+ 
+     char * str = "Hello";
+     char * str1 = "Hello";
+     char str2[] = "Hello";
+ 
+     printf("Result1 is %d\n", str == str1);
+     printf("Result2 is %d\n", str == str2);
+     //output:
+     //Result1 is 1
+     //Result2 is 0
+ 
+     //不同的原因是: 测试 '==', 比较的是值, 如果多个字符的值一样,那么它们的内存地址是相同的
+     printf("Pointer str %p, Pointer str1 %p, Pointer str2 %p\n", str, str1, str2);
+ 
+     //output:
+     //  Pointer str 0x10e74ef4a, Pointer str1 0x10e74ef4a, Pointer str2 0x7fff514b1a72
+ 
+     //如果是单纯的比较值,可以用strcmp, 0表示相等
+     int result = strcmp(str1, str2);
+     if (result == 0) {
+         puts("Two string is equal");
+     } else {
+         puts("Two string is not equal");
+     }
+ 
+     //output: Two string is equal
+ 
+     return 0;
+ }
+ ```
  * 字符串的截取
  
 ### C语言函数
