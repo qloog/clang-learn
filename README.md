@@ -808,6 +808,39 @@ Mac 系统用户体验非常好，文字渲染非常完美，正在被越来越�
 ### C语言函数
 
  * 声明函数
+ ```
+ #include <stdio.h>
+
+ //不带参数, 不带返回值的函数
+ void helloWorld(){
+     printf("Hello World\n");
+ }
+ 
+ //带参数, 不带返回值的函数
+ void hello(char * name, int age) {
+     printf("Hello, %s, your age is %d\n", name, age);
+ }
+ 
+ //带参数,也带返回值的函数
+ int add(int a, int b){
+     return a+b;
+ }
+ 
+ int main(void) {
+ 
+     helloWorld();
+ 
+     hello("qloog", 18); //^_^
+ 
+     int c = add(3,6);
+ 
+     //output:
+     //Hello World
+     //Hello, qloog, your age is 18
+ 
+     return 0;
+ }
+ ```
  * main 函数参数及返回值
  * 可变参数
  * 多文件程序
