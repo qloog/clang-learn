@@ -962,12 +962,30 @@ Mac 系统用户体验非常好，文字渲染非常完美，正在被越来越�
 
 ### 3.1 C语言常用的预处理
 
-* 预设常量
-* 条件预处理
-* 防止头文件重复引入
-* 宏函数
-* 宏函数参数连接
-* 宏函数可变参数
+* 3.1.1 预设常量
+
+  有两种方式可以定义宏常量：
+  a. 在程序内部通过`define`关键字: `#define THE_NUM 3`
+  ```
+  #include <stdio.h>
+  #include <stdlib.h>
+  
+  #define THE_NUM 3;
+  
+  int main(int argc, char ** argv) {
+  
+      printf("the num is %d\n", THE_NUM);
+  
+      return EXIT_SUCCESS;
+  }
+  ```
+  b. 通过编译器定义宏常量： `gcc hello.c -DTHE_NUM=3`
+  
+* 3.1.2 条件预处理
+* 3.1.3 防止头文件重复引入
+* 3.1.4 宏函数
+* 3.1.5 宏函数参数连接
+* 3.1.6 宏函数可变参数
 
 ### 3.2 C语言指针的用法
 ### 3.3 结构体和共同体
