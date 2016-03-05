@@ -982,6 +982,40 @@ Mac 系统用户体验非常好，文字渲染非常完美，正在被越来越�
   b. 通过编译器定义宏常量： `gcc hello.c -DTHE_NUM=3`
   
 * 3.1.2 条件预处理
+
+  也就是设定好编译条件，看下面例子：
+ ```
+ #include <stdio.h>
+ #include <stdlib.h>
+ 
+ #define WIN 1
+ #define LINUX 2
+ #define MAC 3
+ 
+ void sayHello() {
+ 
+ #if PLATFORM == WIN
+     printf("Hello win\n");
+ #elif PLATFORM == LINUX
+     printf("Hello linux\n");
+ #elif PLATFORM == MAC
+     printf("Hello mac\n");
+ #else
+     printf("Unknown platfom\n");
+ #endif
+ 
+ }
+ 
+ int main(int argc, char ** argv) {
+ 
+     sayHello();
+ 
+     return EXIT_SUCCESS;
+ }
+ ```
+ 然后编译运行代码 `gcc main.c -DPLATFORM=3`，会生成一个a.out文件，执行a.out `./a.out`输出：
+ `Hello mac`
+ 
 * 3.1.3 防止头文件重复引入
 * 3.1.4 宏函数
 * 3.1.5 宏函数参数连接
