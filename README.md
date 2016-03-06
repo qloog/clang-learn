@@ -1057,59 +1057,59 @@ Mac 系统用户体验非常好，文字渲染非常完美，正在被越来越�
  }
  ```
 * 3.1.5 宏函数参数连接
-```
- #include <stdio.h>
- #include <stdlib.h>
- 
- void appSayHi(){
- 	printf("Hi C\n");
- }
- 
- void appSayHello(){
- 	printf("Hello C\n");
- }
- 
- /**
-  * 为了避免每次调用函数多写个app, 所以这里可以定义一个宏
-  * 通过NAME连接参数， 这里的app可以理解为是PHP的命名空间
-  * NAME为参数
-  */
- #define callApp(NAME) app##NAME()
- 
- int main(void) {
- 
- 	callApp(SayHi);
- 
- 	callApp(SayHello);
- 
- 	puts("!!!Hello World!!!"); /* prints !!!Hello World!!! */
- 	return EXIT_SUCCESS;
- }
-
-```
+  ```
+   #include <stdio.h>
+   #include <stdlib.h>
+   
+   void appSayHi(){
+   	printf("Hi C\n");
+   }
+   
+   void appSayHello(){
+   	printf("Hello C\n");
+   }
+   
+   /**
+    * 为了避免每次调用函数多写个app, 所以这里可以定义一个宏
+    * 通过NAME连接参数， 这里的app可以理解为是PHP的命名空间
+    * NAME为参数
+    */
+   #define callApp(NAME) app##NAME()
+   
+   int main(void) {
+   
+   	callApp(SayHi);
+   
+   	callApp(SayHello);
+   
+   	puts("!!!Hello World!!!"); /* prints !!!Hello World!!! */
+   	return EXIT_SUCCESS;
+   }
+  
+  ```
 * 3.1.6 宏函数可变参数
-```
- #include <stdio.h>
- #include <stdlib.h>
- 
- #define LOG(LEVEL, FORMAT, ...) printf(LEVEL); printf(FORMAT, __VA_ARGS__);
- #define LOG_E(FORMAT, ...)	LOG("ERROR: ", FORMAT, __VA_ARGS__);
- #define LOG_W(FORMAT, ...)	LOG("WARING: ", FORMAT, __VA_ARGS__);
- #define LOG_I(FORMAT, ...)	LOG("INFO: ", FORMAT, __VA_ARGS__);
- #define LOG_D(FORMAT, ...)	LOG("DEBUG: ", FORMAT, __VA_ARGS__);
- 
- 
- int main(void) {
- 
- 	LOG_E("Hello %s %d\n", "World", 1000);
- 	LOG_W("Hello %s %d\n", "World", 1000);
- 	LOG_E("Hello %s %d\n", "World", 1000);
- 	LOG_D("Hello %s %d\n", "World", 1000);
- 
- 	puts("!!!Hello World!!!"); /* prints !!!Hello World!!! */
- 	return EXIT_SUCCESS;
- } 
-```
+  ```
+   #include <stdio.h>
+   #include <stdlib.h>
+   
+   #define LOG(LEVEL, FORMAT, ...) printf(LEVEL); printf(FORMAT, __VA_ARGS__);
+   #define LOG_E(FORMAT, ...)	LOG("ERROR: ", FORMAT, __VA_ARGS__);
+   #define LOG_W(FORMAT, ...)	LOG("WARING: ", FORMAT, __VA_ARGS__);
+   #define LOG_I(FORMAT, ...)	LOG("INFO: ", FORMAT, __VA_ARGS__);
+   #define LOG_D(FORMAT, ...)	LOG("DEBUG: ", FORMAT, __VA_ARGS__);
+   
+   
+   int main(void) {
+   
+   	LOG_E("Hello %s %d\n", "World", 1000);
+   	LOG_W("Hello %s %d\n", "World", 1000);
+   	LOG_E("Hello %s %d\n", "World", 1000);
+   	LOG_D("Hello %s %d\n", "World", 1000);
+   
+   	puts("!!!Hello World!!!"); /* prints !!!Hello World!!! */
+   	return EXIT_SUCCESS;
+   } 
+  ```
 
 ### 3.2 C语言指针的用法
 ### 3.3 结构体和共同体
