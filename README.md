@@ -1387,6 +1387,76 @@ Mac 系统用户体验非常好，文字渲染非常完美，正在被越来越�
 
 ### 3.4 C语言中的文件操作
 
+ 文件系统部分主要包括：文件的打开、读、写、关闭，格式化的输入、输出等等
+ ```
+ #include <stdio.h>
+ #include <stdlib.h>
+ 
+ /**
+  * data.txt
+  *  Item 1
+     Item 2
+     Item 3
+     Item 4
+     Item 5
+     Item 6
+     Item 7
+     Item 8
+     Item 9
+  *
+  */
+ 
+ int main(void) {
+ 
+     //write
+     FILE *fw = fopen("dataw.txt", "w");
+     if (fw!=NULL){
+         //fputs: write string to file
+         fputs("this is test content\n", fw);
+ 
+         //fputc: write char to file
+         char c;
+         for(c='A'; c<='Z'; c++){
+             fputc(c, fw);
+         }
+ 
+         //按照一定格式写入内容, fprintf
+         for(int i=0; i<10; i++){
+             fprintf(fw, "Item %d\n", i);
+         }
+         fclose(fw);
+     }
+ 
+ 
+     //read
+     FILE *fr = fopen("data.txt", "r");
+     if(fr){
+         //fgetc
+         char str1 = fgetc(fr);
+         printf("TMP content is %c\n", str1);    //TMP content is I
+ 
+         //fgets
+         char str[100];
+         if (fgets(str, 100, fr) !=NULL) {
+             puts(str);
+         }
+         //output: Item 1
+ 
+         //读取指定格式的内容
+         int a;
+         fscanf(fr, "Item %d\n", &a);
+         fscanf(fr, "Item %d\n", &a);
+         fscanf(fr, "Item %d\n", &a);
+         printf("Num is %d\n", a);   //Num is 3
+ 
+         fclose(fr);
+     } else {
+         puts("Can not read file\n");
+     }
+ 	return EXIT_SUCCESS;
+ }
+ ```
+
 ## 4 C语言编程实践
 
 ### 4.1 C语言五子棋游戏项目分析与系统设计
