@@ -1310,6 +1310,81 @@ Mac 系统用户体验非常好，文字渲染非常完美，正在被越来越�
 
   ```
  * 3.3.3 共同体
+  ```
+  #include <stdio.h>
+  #include <stdlib.h>
+  
+  /**
+   * 结构体共用内存， 可以使用多个数据类型访问同一块内存，
+   * 比较适合于多数据类型转换
+   */
+  typedef union _BaseData{
+      char ch;
+      uint8_t ch_num;
+  } BaseData;
+  
+  typedef union _BaseData2{
+      char ch;
+      uint8_t ch_num;
+      uint32_t num;
+  } BaseData2;
+  
+  typedef struct _Data{
+      uint8_t a;
+  } Data;
+  
+  typedef struct _Data2{
+      uint8_t a;
+      uint8_t b;
+  } Data2;
+  
+  typedef struct _Data3{
+      uint8_t a;
+      uint8_t b;
+      uint32_t c;
+  } Data3;
+  
+  typedef struct _Data4{
+      uint8_t a;  //1
+      uint8_t b;  //1
+      uint32_t c; //4
+      uint8_t d;  //1
+  } Data4;
+  
+  typedef struct _Data5{
+      uint8_t a;  //1
+      uint8_t b;  //1
+      uint32_t c; //4
+      uint8_t d;  //1
+  }__attribute__((__packed__)) Data5;
+  
+  int main(void) {
+  
+      BaseData data;
+      data.ch = 'B';
+  
+      printf("ch_num is %d\n", data.ch);  //ch_num is 66
+  
+      printf("Length of BaseData is %ld\n", sizeof(BaseData));    //Length of BaseData is 1
+      printf("Length of BaseData2 is %ld\n", sizeof(BaseData2));    //Length of BaseData2 is 4
+  
+      //通过以上发现 共同体的长度是成员里长度最大的长度
+  
+      //那么结构体的长度呢？
+      printf("Length of Data  is %ld\n", sizeof(Data));    //Length of BaseData2 is 1
+      printf("Length of Data2 is %ld\n", sizeof(Data2));    //Length of BaseData2 is 2
+      printf("Length of Data3 is %ld\n", sizeof(Data3));    //Length of BaseData2 is 8
+      printf("Length of Data4 is %ld\n", sizeof(Data4));    //Length of BaseData2 is 12
+  
+      //通过以上输出结果发现， 长度并不是按类型的长度简单的相加得出，是编译器对结构体做了优化，使用了: 内存对齐
+      //但是内存对齐对于网络传输是不利的，占用内存带宽, 可以通过压缩来使用实际的长度
+      printf("Length of Data5 is %ld\n", sizeof(Data5));    //Length of BaseData2 is 7
+  
+  
+  	return EXIT_SUCCESS;
+  }
+  ```
+
 ### 3.4 C语言中的文件操作
 
 ## 4 C语言编程实践
