@@ -1231,6 +1231,85 @@ Mac 系统用户体验非常好，文字渲染非常完美，正在被越来越�
  
  
 ### 3.3 结构体和共同体
+
+ * 3.3.1 结构体
+  ```
+  #include <stdio.h>
+  #include <stdlib.h>
+  
+  struct File{
+      char *name;
+      int size;
+  };
+  
+  struct File2{
+      char *name;
+      int size;
+  };
+  
+  typedef struct File2 file2; //前者为结构体名，后者变量名
+  
+  typedef struct _File3{
+      char *name;
+      int size;
+  } file3;
+  
+  int main(void) {
+  
+      struct File file;
+      file.name = "testFile.txt";
+      file.size = 99;
+      printf("file name is %s and size is %d\n", file.name, file.size);
+  
+      //以上操作也可以通过对结构体做初始化处理来达到
+      struct File file1 = {"testFile1.txt", 98};
+      printf("file1 name is %s and size is %d\n", file1.name, file1.size);
+  
+      //以上操作也可以通过定义类型来简化： typedef struct [结构体名] [变量名]
+      file2 _file2 = {"testFile2.txt", 97};
+      printf("file2 name is %s and size is %d\n", _file2.name, _file2.size);
+  
+      /**
+       * 或许认为上面的定义方式已经是最优的了，但是需要定义两步来达到，其实需要通过一步来达到目的
+       * typedef struct [结构体名]{
+       *    //具体内容
+       * } [变量名];
+       */
+      file3 _file3 = {"testFile3.txt", 96};
+      printf("file3 name is %s and size is %d\n", _file3.name, _file3.size);
+  
+  	return EXIT_SUCCESS;
+  }
+  ```
+ * 3.3.2 结构体指针
+  ```
+  #include <stdio.h>
+  #include <stdlib.h>
+  
+  typedef struct _Student{
+      char *name;
+      int age;
+  } Student;
+  
+  int main(void) {
+  
+      Student s1 = {"Clearn", 20};
+      Student s2 = s1;    //内存复制操作
+      s2.age = 21;
+      printf("(s1.name=%s, s1.age=%d),(s2.name=%s, s2.age=%d)\n", s1.name, s1.age, s2.name, s2.age);
+  
+      /**
+       * 以上如果想更改多个变量的内容，则无法操作，如果想更改多个，则需要通过指针的方式
+       * 如果s1 也是指针，则不需用&， 同时也会全局修改
+       */
+      Student *s3 = &s1;
+      printf("(s1.name=%s, s1.age=%d),(s3.name=%s, s3.age=%d)\n", s1.name, s1.age, s3->name, s3->age);
+  
+  	return EXIT_SUCCESS;
+  }
+
+  ```
+ * 3.3.3 共同体
 ### 3.4 C语言中的文件操作
 
 ## 4 C语言编程实践
