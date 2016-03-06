@@ -1110,6 +1110,126 @@ Mac 系统用户体验非常好，文字渲染非常完美，正在被越来越�
   ```
 
 ### 3.2 C语言指针的用法
+
+ * 3.2.1 指针的基本介绍
+   指针：指向某一个特定内存的变量
+  ```
+  #include <stdio.h>
+  #include <stdlib.h>
+  
+  int main(void) {
+  
+      char *str = "Hello";
+      int a = 10;
+      int *pa = &a;   //通过地址符&取内存地址，并赋值给指针变量
+      printf("a is %d\n", *pa);
+  
+  
+      /**
+       * 使用malloc函数必须引入 stdlib.h
+       */
+      int32_t * intPi = malloc(4);
+      *intPi = 100;
+      printf("intPi is %d\n", *intPi);
+      free(intPi);
+  
+      /**
+       * 分配内存长度的一个技巧
+       * 另外内存地址其实也是一个数组，所以也可以按如下方法来写
+       */
+      int len = 10;
+      int32_t * intP = malloc(len*sizeof(int32_t));
+      intP[0] = 101;
+      intP[1] = 102;
+  
+      //访问方式
+      printf("intP is %d\n", intP[1]);    //通过数组的形式
+      printf("intP is %d\n", *(intP+1));  //通过移动指针的形式
+  
+      //free, 释放指针对应的内存, 其他程序可来使用了
+      free(intP);
+  
+      /**
+       * 以下运行结果都是8， 不过有个前提， 是在64的操作系统下
+       * 如果是32位的操作系统下，运行结果都是4
+       */
+      char * str1 = "Hello";  //字符串指针
+      int * str2; //int指针
+      printf("%ld\n", sizeof(str1));  //获取值的长度: 8
+      printf("%ld\n", sizeof(str2));  //获取值的长度: 8
+  
+      /**
+       * 字符串和指针是可以相互转换的，以下以64位的操作系统为例
+       */
+      char *str3 = "Hello";
+      int64_t p = (int64_t)str3;
+      char *str4 = (char*)p;
+      printf("str4 is %s\n", str4);
+  
+  
+  	puts("!!!Hello World!!!"); /* prints !!!Hello World!!! */
+  	return EXIT_SUCCESS;
+  }
+  ```
+
+ * 3.2.2 函数指针
+  ```
+  #include <stdio.h>
+  #include <stdlib.h>
+  
+  void hello(){
+      printf("Hello\n");
+  }
+  
+  void world(int a, int b, char *c){
+      printf("World a:%d, b:%d, c:%s\n", a, b, c);
+  }
+  
+  typedef void(*SimpleFunc)();
+  
+  int main(void) {
+  
+  //    hello();
+  
+      void(*fp)() = &hello;
+      fp();
+  
+      void(*fp1)(int, int, char*) = &world;
+      fp1(1, 2, "good");
+  
+      //以上函数指针定义起来稍微复杂些，可以通过typeof 关键词来定义函数指针
+      SimpleFunc fp2 = &hello;
+      fp2();
+  
+  	return EXIT_SUCCESS;
+  }
+  ```
+ * 3.2.3 无类型指针
+  ```
+  #include <stdio.h>
+  #include <stdlib.h>
+  
+  int main(void) {
+  
+      //无类型指针可以代表所有类型的数据
+      void *data1 = "Hello world";
+      printf("data1 is %s\n", data1);
+  
+      void *data2 = 1000;
+      printf("data2 is %d\n", data2);
+  
+      //无类型指针转化为整型, 也可以转化为其他任意的类型
+      void *data3 = malloc(8);
+      int *intData = data3;
+      intData[0] = 2000;
+      printf("data3 is %d\n", intData[0]);
+      free(data3);    //一定要free
+  
+  	return EXIT_SUCCESS;
+  }
+  ```
+ 
+ 
 ### 3.3 结构体和共同体
 ### 3.4 C语言中的文件操作
 
