@@ -1030,8 +1030,86 @@ Mac 系统用户体验非常好，文字渲染非常完美，正在被越来越�
   b. `#pragma once` 可替换啊，与a相比，这个编辑速度会比较快
   
 * 3.1.4 宏函数
+  主要是针对单行定义、多行定义
+ ```
+ #include <stdio.h>
+ #include <stdlib.h>
+ 
+ //宏定义函数， 单行定义
+ #define MAX(A,B) A>B?A:B
+ 
+ //宏定义函数， 多行定义， 每行加一个 \ 即可， 最后一行可加可不加
+ #define LOOP1(FROM,TO,CONTENT)\
+ 	for(int index=FROM; index<=TO; index++){ \
+ 		CONTENT \
+ 	}
+ 
+ int main(void) {
+ 
+ 	printf("Max number is %d \n", MAX(2, 5));
+ 
+ 	LOOP1(1, 100,
+ 			printf("Current index is %d\n", index);
+ 			);
+ 
+ 	puts("!!!Hello World!!!"); /* prints !!!Hello World!!! */
+ 	return EXIT_SUCCESS;
+ }
+ ```
 * 3.1.5 宏函数参数连接
+```
+ #include <stdio.h>
+ #include <stdlib.h>
+ 
+ void appSayHi(){
+ 	printf("Hi C\n");
+ }
+ 
+ void appSayHello(){
+ 	printf("Hello C\n");
+ }
+ 
+ /**
+  * 为了避免每次调用函数多写个app, 所以这里可以定义一个宏
+  * 通过NAME连接参数， 这里的app可以理解为是PHP的命名空间
+  * NAME为参数
+  */
+ #define callApp(NAME) app##NAME()
+ 
+ int main(void) {
+ 
+ 	callApp(SayHi);
+ 
+ 	callApp(SayHello);
+ 
+ 	puts("!!!Hello World!!!"); /* prints !!!Hello World!!! */
+ 	return EXIT_SUCCESS;
+ }
+
+```
 * 3.1.6 宏函数可变参数
+```
+ #include <stdio.h>
+ #include <stdlib.h>
+ 
+ #define LOG(LEVEL, FORMAT, ...) printf(LEVEL); printf(FORMAT, __VA_ARGS__);
+ #define LOG_E(FORMAT, ...)	LOG("ERROR: ", FORMAT, __VA_ARGS__);
+ #define LOG_W(FORMAT, ...)	LOG("WARING: ", FORMAT, __VA_ARGS__);
+ #define LOG_I(FORMAT, ...)	LOG("INFO: ", FORMAT, __VA_ARGS__);
+ #define LOG_D(FORMAT, ...)	LOG("DEBUG: ", FORMAT, __VA_ARGS__);
+ 
+ 
+ int main(void) {
+ 
+ 	LOG_E("Hello %s %d\n", "World", 1000);
+ 	LOG_W("Hello %s %d\n", "World", 1000);
+ 	LOG_E("Hello %s %d\n", "World", 1000);
+ 	LOG_D("Hello %s %d\n", "World", 1000);
+ 
+ 	puts("!!!Hello World!!!"); /* prints !!!Hello World!!! */
+ 	return EXIT_SUCCESS;
+ } 
+```
 
 ### 3.2 C语言指针的用法
 ### 3.3 结构体和共同体
